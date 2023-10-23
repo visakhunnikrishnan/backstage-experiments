@@ -43,7 +43,7 @@ jobs:
         context: .
         file: packages/backend/Dockerfile
         push: ${{ github.event.inputs.uploadToRegistry == 'true' }}
-        tags: YOUR-DOCKER-HUB-USERNAME/backstage-experiments:latest
+        tags: visakh/backstage-experiments:latest
 
     - name: Log out of Docker Hub
       if: github.event.inputs.uploadToRegistry == 'true'

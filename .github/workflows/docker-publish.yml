@@ -5,6 +5,7 @@ on:
     inputs:
       uploadToRegistry:
         description: 'Upload to Docker Hub'
+        type: boolean
         required: true
         default: false
 

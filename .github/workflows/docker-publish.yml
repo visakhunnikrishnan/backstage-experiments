@@ -8,6 +8,11 @@ on:
         type: boolean
         required: true
         default: false
+      platform:
+        description: 'Select platform for Docker build (e.g., linux/amd64, linux/arm64)'
+        type: string
+        required: true
+        default: 'linux/arm64'
 
 jobs:
   build-and-publish:
@@ -45,7 +50,7 @@ jobs:
         file: packages/backend/Dockerfile
         push: ${{ github.event.inputs.uploadToRegistry == 'true' }}
         tags: visakh/backstage-experiments:latest
-        platforms: linux/amd64,linux/arm64
+        platforms: ${{ github.event.inputs.platform }}
 
     - name: Log out of Docker Hub
       if: github.event.inputs.uploadToRegistry == 'true'
